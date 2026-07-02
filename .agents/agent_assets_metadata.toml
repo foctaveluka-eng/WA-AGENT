@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "A-Af3OgGIk4iGAczSR6aw"
+uri = "file://WA_Agent_Documentation.pdf"
+type = "pdf"
+title = "WA Agent — Documentation complète (PDF)"

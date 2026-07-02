@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: wa-agent
+    runtime: node
+    region: frankfurt
+    plan: starter
+    buildCommand: bash scripts/render-build.sh
+    startCommand: node --enable-source-maps /opt/render/project/src/artifacts/api-server/dist/index.mjs
+    healthCheckPath: /api/healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false

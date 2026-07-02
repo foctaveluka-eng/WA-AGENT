@@ -1,0 +1,42 @@
+import { Router, type IRouter } from "express";
+import healthRouter from "./health";
+import agentsRouter from "./agents";
+import knowledgeRouter from "./knowledge";
+import productsRouter from "./products";
+import leadsRouter from "./leads";
+import conversationsRouter from "./conversations";
+import ordersRouter from "./orders";
+import widgetsRouter from "./widgets";
+import dashboardRouter from "./dashboard";
+import profileRouter from "./profile";
+import templatesRouter from "./templates";
+import blacklistRouter from "./blacklist";
+import webhooksRouter from "./webhooksRoute";
+import notificationsRouter from "./notificationsRoute";
+import appointmentsRouter from "./appointments";
+import agentProductsRouter from "./agentProducts";
+import adminRouter from "./admin";
+import broadcastRouter from "./broadcast";
+
+const router: IRouter = Router();
+
+router.use(healthRouter);
+router.use("/dashboard", dashboardRouter);
+router.use("/agents/:agentId/knowledge", knowledgeRouter);
+router.use("/agents/:agentId/products", agentProductsRouter);
+router.use("/agents", agentsRouter);
+router.use("/products", productsRouter);
+router.use("/leads", leadsRouter);
+router.use("/conversations", conversationsRouter);
+router.use("/orders", ordersRouter);
+router.use("/widgets", widgetsRouter);
+router.use("/templates", templatesRouter);
+router.use("/blacklist", blacklistRouter);
+router.use("/webhooks", webhooksRouter);
+router.use("/notifications", notificationsRouter);
+router.use("/appointments", appointmentsRouter);
+router.use("/admin", adminRouter);
+router.use("/broadcast", broadcastRouter);
+router.use(profileRouter);
+
+export default router;
